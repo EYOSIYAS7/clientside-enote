@@ -1,0 +1,36 @@
+body {
+  /* background: rgba(227, 227, 227, 0.864); */
+  background: #000;
+  overflow-y: auto;
+}
+a {
+  text-decoration: none;
+  color: aquamarine;
+}
+a:hover {
+  color: aliceblue;
+}
+header {
+  background: #202020;
+}
+#card {
+  background: #202020;
+}
+p {
+  color: rgb(255, 255, 255);
+}
+#logo {
+  color: white;
+}
+.input {
+  background: rgb(0, 0, 0);
+  outline: none;
+  color: aliceblue;
+}
+h1 {
+  color: white;
+}
+.noteD {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+}

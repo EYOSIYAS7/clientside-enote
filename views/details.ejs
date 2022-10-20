@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/bootstrap-5.2.0-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/fontawesome-free-6.1.1-web/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css" type="text/css" />
+    <title>details</title>
+  </head>
+  <body>
+    <header>
+      <div class="container-xxl">
+        <div class="row justify-content-between p-4">
+          <div class="col-3 text-center">  <a href="/" class="display-6 " id="logo">E Note</a></div>
+          
+        </div>
+      </div>
+    </header>
+    <div class="container-xxl">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-10">
+          <h2 class="mt-5 mb-4 text-white">your note</h2>
+          <hr />
+     
+          <div class="card border-0 shadow mt-4"  id="card">
+            <div class="card-body">
+              
+              <!-- ejs code -->
+
+              <h3 class="card-text text-white"><%= notes.title%></h3>
+                <p class="card-text text-muted"><%= notes.subject%></p>
+                <p class="card-text text-muted"><%= notes.createdAt%></p>
+                <p class="card-text ms-4 noteD"><%= notes.note%></p>
+                
+              <a href="/update" class="card-link ">Update your note</a>
+              <a
+              data-req="/delete/<%= notes.id%>"
+              class="d-inline float-end fs-3 trash"
+            >
+              <i class="fa-regular fa-trash-can"></i
+            ></a>
+
+             
+            </div>
+          </div>
+
+        </div>
+        <script>
+          const deleteLink = document.querySelector(".trash");
+deleteLink.addEventListener("click", () => {
+  const endpoint = deleteLink.dataset.req;
+
+  fetch(endpoint, { method: "DELETE" })
+    .then((data) => {
+      data.json().then((result) => {
+        window.location.href = result.redirect;
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+        </script>
+    <script src="bootstrap-5.2.0-dist\js\bootstrap.bundle.js"></script>
+  </body>
+</html>

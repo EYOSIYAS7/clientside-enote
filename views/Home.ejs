@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/bootstrap-5.2.0-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/fontawesome-free-6.1.1-web/css/all.min.css" />
+    <link rel="stylesheet" href="/style.css" type="text/css" />
+    <title>E Note</title>
+  </head>
+  <body >
+    <header class="">
+      <div class="container-xxl">
+        <div class="row justify-content-between align-item-center p-4">
+          <div class="col-3 text-center">
+            <a href="/" class="display-6 " id="logo">E note</a>
+          </div>
+          <div class="col-3 text-center">
+            <a href="/takenote" class="">create new note</a>
+          </div>
+       
+        </div>
+      </div>
+    </header>
+
+    <div class="">
+      <div class="container-lg">
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-7">
+            <h2 class="mt-5 mb-4 text-white">Your notes</h2>
+            <hr />
+            <% for(let orders of notes) {%>
+            <div class="card border-0 shadow mt-4" id="card">
+              <div class="card-body">
+               
+                <h4 class="card-text text-white"><%= orders.title%></h4>
+                <p class="card-text text-muted"><%= orders.subject%></p>
+                <p class="card-text text-muted"> <%= orders.updatedAt%></p>
+               
+                <a href="/update/<%= orders.id%>" class="card-link"
+                  >Update your note</a
+                >
+                <a href="/see/<%= orders.id%>" class="card-link"
+                  >See your note</a
+                > 
+                <a
+                data-req="/delete/<%= orders.id%>"
+                class="d-inline float-end fs-3 trash"
+              >
+                <i class="fa-regular fa-trash-can"></i
+              ></a>
+              </div>
+          
+          </div>
+          <%}%>
+          <a href="/takenote" class=" float-end mb-5 fs-3 text-white bg-success rounded-circle p-2 ps-3 pe-3 mt-3"><i class="fa-solid fa-plus"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <script src="delete.js"></script>
+    <script src="bootstrap-5.2.0-dist\js\bootstrap.bundle.js"></script>
+  </body>
+</html>

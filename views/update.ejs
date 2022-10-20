@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/bootstrap-5.2.0-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/fontawesome-free-6.1.1-web/css/all.min.css" />
+    <link rel="stylesheet" href="/style.css" type="text/css" />
+    <title>update</title>
+  </head>
+  <body>
+    <header>
+      <div class="container-xxl">
+        <div class="row justify-content-between p-4">
+          <div class="col-3 text-center">
+            <a href="/" class="display-6" id="logo">E Note</a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="row justify-content-center">
+      <div class="col-sm-7">
+        <h1 class="mt-5 mb-4">Make changes</h1>
+        <hr />
+        <form action="/change/<%= id%>" method="post">
+          <input
+            type="text"
+            id="title"
+            name="title"
+            class="mt-2 d-block input border-0 mb-3"
+            placeholder="title"
+          />
+
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            class="mt-2 d-block input border-0 mb-3"
+            placeholder="subject"
+          />
+          <textarea
+            name="note"
+            id="note"
+            cols="45"
+            rows="10"
+            class="mt-2 border-0 input mb-3"
+            placeholder="note"
+          ></textarea>
+          <button class="btn btn-success p-2">Done</button>
+        </form>
+      </div>
+    </div>
+    <p id="N" class="d-none"><%= notes.title%></p>
+    <p id="s" class="d-none"><%= notes.subject%></p>
+    <p id="t" class="d-none"><%= notes.note%></p>
+    <script>
+      const name = document.getElementById("N").innerHTML;
+      const subject = document.getElementById("s").innerHTML;
+      const note = document.getElementById("t").innerHTML;
+      document.getElementById("title").value = name;
+      document.getElementById("subject").value = subject;
+      document.getElementById("note").value = note;
+    </script>
+    <script src="bootstrap-5.2.0-dist\js\bootstrap.bundle.js"></script>
+  </body>
+</html>
